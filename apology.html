@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heartfelt Apology</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff5f5;
+            font-family: 'Montserrat', sans-serif;
+            color: #5a3e3e;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            padding: 30px 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        .apology-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apology-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-top: 30px;
+        }
+
+        .flowers {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .flower {
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .hidden-message {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #a78a8a;
+        }
+
+        /* Floating hearts background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 107, 107, 0.5);
+            animation: float-up 10s linear infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="container">
+        <header>
+            <h1>To My Love, Joanne Lie <span class="heart">❤</span></h1>
+        </header>
+
+        <div class="apology-card">
+            <h2>I Was Wrong</h2>
+            
+            <p>My dearest Joanne,</p>
+            
+            <p>I know the mistakes I did in the past hurt you, especially the one I did few days ago, you asked me to stop and I didn’t stop. , knowing I've hurt you. There are no excuses for my actions, only regret that I've caused you pain.</p>
+            
+            <p>After you explaining thousands of times, I still didn’t take down the post, I still didn’t listen to you, but instead I did something terrible and made you cry, and seeing you upset breaks my heart. I promise to do better, to be more thoughtful, and to cherish you the way you deserve.</p>
+            
+            <p>Your smile lights up my world, your laugh is my favorite sound, and your love is the greatest gift I've ever received. I can't bear the thought of dimming your light.</p>
+            
+            <p>Please forgive me. I'll spend every day making it up to you.</p>
+            
+            <div class="flowers">
+                <div class="flower" style="animation-delay: 0s;">🌹</div>
+                <div class="flower" style="animation-delay: 0.5s;">🌸</div>
+                <div class="flower" style="animation-delay: 1s;">🌺</div>
+                <div class="flower" style="animation-delay: 1.5s;">💐</div>
+                <div class="flower" style="animation-delay: 2s;">🌷</div>
+            </div>
+            
+            <p>With all my love and deepest regret,</p>
+            <div class="signature">Forever yours</div>
+        </div>
+
+        <div class="apology-card">
+            <h2>Our Happy Memories</h2>
+            <p>Remember all the beautiful moments we've shared...</p>
+            
+            <div class="photo-gallery">
+                <!-- Replace these with actual photos of you two -->
+                <img src="https://placehold.co/150x150/pink/white?text=Our+Photo+1" class="photo" alt="Memory 1">
+                <img src="https://placehold.co/150x150/pink/white?text=Our+Photo+2" class="photo" alt="Memory 2">
+                <img src="https://placehold.co/150x150/pink/white?text=Our+Photo+3" class="photo" alt="Memory 3">
+                <img src="https://placehold.co/150x150/pink/white?text=Our+Photo+4" class="photo" alt="Memory 4">
+            </div>
+            
+            <p>I promise to create many more beautiful memories with you.</p>
+        </div>
+
+        <div class="apology-card">
+            <h2>Will You Forgive Me?</h2>
+            <p>I know I don't deserve it, but I'm hoping with all my heart that you can find it in your heart to forgive me.</p>
+            
+            <button id="forgiveBtn">Click to Show How Much I Love You</button>
+            
+            <div id="hiddenMessage" class="hidden-message">
+                <p>Thank you for giving me another chance. I promise to:</p>
+                <ul style="text-align: left; margin: 20px auto; max-width: 400px; list-style-type: none;">
+                    <li>❤ Listen more and speak less</li>
+                    <li>❤ Be more patient and understanding</li>
+                    <li>❤ Show my appreciation every day</li>
+                    <li>❤ Never take you for granted</li>
+                    <li>❤ Love you more each day than the last</li>
+                </ul>
+                <p>You're my everything, and I'll spend my life making you happy.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Made with love and sincere regret ❤
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('floatingHearts');
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = 5 + Math.random() * 10 + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = 10 + Math.random() * 20 + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Show hidden message when button is clicked
+        document.getElementById('forgiveBtn').addEventListener('click', function() {
+            const message = document.getElementById('hiddenMessage');
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+            } else {
+                message.style.display = 'block';
+                this.textContent = 'I Love You More Than Words Can Say';
+                
+                // Create heart explosion
+                for (let i = 0; i < 50; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('floating-heart');
+                    heart.innerHTML = '❤';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '50vh';
+                    heart.style.animationDuration = 1 + Math.random() * 3 + 's';
+                    heart.style.animationDelay = '0s';
+                    heart.style.fontSize = 10 + Math.random() * 30 + 'px';
+                    heart.style.color = `hsl(${Math.random() * 60 + 330}, 100%, 70%)`;
+                    document.getElementById('floatingHearts').appendChild(heart);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }
+            }
+        });
+
+        // Initialize on load
+        window.onload = function() {
+            createHearts();
+        };
+    </script>
+</body>
+</html>
